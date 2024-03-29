@@ -3,7 +3,7 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import React, { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 
@@ -14,6 +14,13 @@ import { Contional_render } from './Conditional_Rendering';
 import { Forms_Component } from './Forms_and_Controlled';
 import Component_composition from './Component_Composition';
 import MyComponents from './useEffect_Hook';
+
+
+import { BrowserRouter as Router, Route, Link, Routes, useHistory } from 'react-router-dom';
+import HomePage from './Routing with React Router/Home';
+import AboutPage from './Routing with React Router/about';
+import ContactPage from './Routing with React Router/contact';
+
 
   // State Lift-Up and Props
 import ProductList from './State Lift-Up and Props/productList';
@@ -53,7 +60,30 @@ function App() {
     <p>Task5</p>   <Component_composition/><hr/>
     <p>Task6</p>   <MyComponents/><hr/>
 
+    <p>Task7</p>   <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
 
+          </ul>
+        </nav>
+        < Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+
+        </Routes>
+      </div>
+    </Router><hr/>
 
       {/* State Lift-Up and Props */}
 
